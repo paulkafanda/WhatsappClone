@@ -24,7 +24,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.ShapeDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +31,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -54,7 +52,7 @@ class MainActivity : ComponentActivity() {
                 darkTheme = isSystemInDarkTheme(),
                 dynamicColor = true
             ) {
-                window.statusBarColor = colorScheme.primary.toArgb()
+//                window.statusBarColor = colorScheme.primary.toArgb()
                 WhatsAppLayout()
 
             }
@@ -70,7 +68,7 @@ fun WhatsAppLayout(){
     val systemUiController = rememberSystemUiController()
 
 //                systemUiController.setSystemBarsColor(Color(0xFF118385), darkIcons = isSystemInDarkTheme())
-    systemUiController.setStatusBarColor(Color(0xFF118385), darkIcons = isSystemInDarkTheme())
+//    systemUiController.setStatusBarColor(Color(0xFF118385), darkIcons = isSystemInDarkTheme())
     systemUiController.setNavigationBarColor(Color.Transparent)
 
 
