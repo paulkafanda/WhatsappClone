@@ -487,6 +487,17 @@ fun HeaderComponentPreview() {
         HeaderComponent()
     }
 }
+@Composable
+fun UserProfile(){
+
+}
+@Preview(showBackground = true)
+@Composable
+fun UserProfilePreview() {
+    MaterialTheme {
+        UserProfile()
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -510,14 +521,5 @@ fun StatusComponentPreview() {
 fun WhatsAppLayoutPreview() {
     WhatsappRunTheme {
         WhatsAppLayout()
-        factorielle(5)
     }
 }
-fun factorielle(n: Int): Long {
-    if (n == 0) {
-        return 1
-    }
-    return n * factorielle(n - 1)
-}
-
-
