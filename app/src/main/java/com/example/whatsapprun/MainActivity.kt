@@ -265,7 +265,7 @@ fun Card(
                     modifier = Modifier
                         .clip(CircleShape)
                         .background(Color(0xFF118385))
-                        .padding(4.dp)
+                        .padding(5.dp)
                 )
             }
         }
@@ -521,6 +521,17 @@ fun HeaderComponentPreview() {
         HeaderComponent()
     }
 }
+@Composable
+fun UserProfile(){
+
+}
+@Preview(showBackground = true)
+@Composable
+fun UserProfilePreview() {
+    MaterialTheme {
+        UserProfile()
+    }
+}
 
 //@Preview(showBackground = true)
 @Composable
@@ -546,4 +557,3 @@ fun WhatsAppLayoutPreview() {
         WhatsAppLayout()
     }
 }
-
