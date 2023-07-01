@@ -68,8 +68,8 @@ fun WhatsAppLayout(){
     val systemUiController = rememberSystemUiController()
 
 //                systemUiController.setSystemBarsColor(Color(0xFF118385), darkIcons = isSystemInDarkTheme())
-//    systemUiController.setStatusBarColor(Color(0xFF118385), darkIcons = isSystemInDarkTheme())
-    systemUiController.setNavigationBarColor(Color.Transparent)
+    systemUiController.setStatusBarColor(Color(0xFF118385), darkIcons = isSystemInDarkTheme())
+    systemUiController.setNavigationBarColor(Color.Transparent, navigationBarContrastEnforced = true)
 
 
 
@@ -78,20 +78,30 @@ fun WhatsAppLayout(){
     val more = painterResource(id = R.drawable.more_vert_48px)
     val group = painterResource(id = R.drawable.groups_48px)
     val profilePics = setOf(
-        R.drawable.pro_0b36fe3068c6474aa8bddd33a48c272b_jpg_1200w_1200h_1s,
         R.drawable.pro_095d2b032a754346b4bd84fa3ded5bff_jpg_1200w_1200h_1s,
-        R.drawable.pro_170388045e464228934ca7ed16413614_jpg_1200w_1200h_1s,
-        R.drawable.pro_0bddc5b6724347d7992a925c378d0a12_jpg_1200w_1200h_1s,
-        R.drawable.pro_11ca1b58ae6b49fb84f39d159d7c9c31_jpg_1200w_1200h_1s,
+        R.drawable.pro_0b36fe3068c6474aa8bddd33a48c272b_jpg_1200w_1200h_1s,
         R.drawable.pro_128396fcfffa430c9f78c9a80265e20c_jpg_1200w_1200h_1s,
+        R.drawable.pro_11ca1b58ae6b49fb84f39d159d7c9c31_jpg_1200w_1200h_1s,
+        R.drawable.pro_170388045e464228934ca7ed16413614_jpg_1200w_1200h_1s,
         R.drawable.pro_1c237af0c9f3438787920d396d7319b9_jpg_1200w_1200h_1s,
         R.drawable.pro_1e10f872512e4eafa273183122bdaf9f_jpg_1200w_1200h_1s,
-        R.drawable.pro_0bddc5b6724347d7992a925c378d0a12_jpg_1200w_1200h_1s,
-        R.drawable.pro_29a928b0f6e64a7e9ddcbf743097b92a_jpg_1200w_1200h_1s,
         R.drawable.pro_338f6c8fec624b9c89095adf29c4ee13_jpg_1200w_1200h_1s,
+        R.drawable.pro_0bddc5b6724347d7992a925c378d0a12_jpg_1200w_1200h_1s,
         R.drawable.pro_49c28c1458f241fbb3e97105c92288aa_jpg_1200w_1200h_1s,
-        R.drawable.pro_372d76e5582443f4a0a8973a83c03569_jpg_1200w_1200h_1s,
-        R.drawable.pro_856f8dc0f4be4d3498bcc3aa519f201d_jpg_1200w_1200h_1s,
+        R.drawable.pro_4a0692cbca2e4781843b73c4af6abdf2_jpg_1200w_1200h_1s,
+        R.drawable.pro_5120ffd706ef43cbbb9042c4b7ad51cb_jpg_1200w_1200h_1s,
+        R.drawable.pro_61704a9198de4db4856ecee656a3a9ab_jpg_1200w_1200h_1s,
+        R.drawable.pro_1c237af0c9f3438787920d396d7319b9_jpg_1200w_1200h_1s,
+        R.drawable.pro_6efed50045e044cd9839f57429b8747e_jpg_1200w_1200h_1s,
+        R.drawable.pro_7952a1a291b54b86b6499001881d281f_jpg_1200w_1200h_1s,
+        R.drawable.pro_7e0c6cbeddf04abcb62b1227799dd480_jpg_1200w_1200h_1s,
+        R.drawable.pro_836d7d8bccbe40369dcd5250005099a6_jpg_1200w_1200h_1s,
+        R.drawable.pro_86f6099b731c436aa2efed0ff7b5eea5_jpg_1200w_1200h_1s,
+        R.drawable.pro_8fe1db5d33a8403abc2aab2517de88a2_jpg_1200w_1200h_1s,
+        R.drawable.pro_963f1c503be84d9e982e31435d639393_jpg_1200w_1200h_1s,
+        R.drawable.pro_9b9cde140f994b308422ecb5db165aed_jpg_1200w_1200h_1s,
+        R.drawable.pro_9c4b47a4aa18480e8a162ae3d3580426_jpg_1200w_1200h_1s,
+        R.drawable.pro_e98479265969457e85d1f35cff505c32_jpg_1200w_1200h_1s,
     )
     val faker = faker {  }
 
@@ -185,7 +195,7 @@ fun WhatsAppLayout(){
                 .background(Color.White),
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
-            repeat(20) {
+            repeat(200) {
                 Spacer(modifier = Modifier.height(12.dp))
                 Card(profilePics.random(), faker.name.neutralFirstName(), faker.bigBangTheory.quotes().substring(0..7))
                 Spacer(modifier = Modifier.height(12.dp))
@@ -215,6 +225,7 @@ fun Card(
                 .size(52.dp)
                 .clip(CircleShape)
                 .clickable {
+
                 }
         )
 
@@ -480,7 +491,30 @@ fun StatusComponent() {
     }
 }
 
+@Composable
+fun ImagePreviewerActionBar() {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceAround,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Icon(painter = painterResource(R.drawable.chat_48px), contentDescription = "")
+        Icon(painter = painterResource(R.drawable.call_48px), contentDescription = "")
+        Icon(painter = painterResource(R.drawable.videocam_48px), contentDescription = "")
+        Icon(painter = painterResource(R.drawable.info_48px), contentDescription = "")
+    }
+}
+
 @Preview(showBackground = true)
+@Composable
+fun ImagePreviewerActionBarPreview() {
+    WhatsappRunTheme {
+        ImagePreviewerActionBar()
+    }
+}
+
+
+//@Preview(showBackground = true)
 @Composable
 fun HeaderComponentPreview() {
     MaterialTheme {
@@ -488,7 +522,7 @@ fun HeaderComponentPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun MyStatusComponentPreview() {
     MaterialTheme {
@@ -496,7 +530,7 @@ fun MyStatusComponentPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun StatusComponentPreview() {
     MaterialTheme{
@@ -505,7 +539,7 @@ fun StatusComponentPreview() {
 
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun WhatsAppLayoutPreview() {
     WhatsappRunTheme {
