@@ -254,7 +254,7 @@ fun Card(
                     modifier = Modifier
                         .clip(CircleShape)
                         .background(Color(0xFF118385))
-                        .padding(4.dp)
+                        .padding(5.dp)
                 )
             }
         }
@@ -510,6 +510,14 @@ fun StatusComponentPreview() {
 fun WhatsAppLayoutPreview() {
     WhatsappRunTheme {
         WhatsAppLayout()
+        factorielle(5)
     }
 }
+fun factorielle(n: Int): Long {
+    if (n == 0) {
+        return 1
+    }
+    return n * factorielle(n - 1)
+}
+
 
